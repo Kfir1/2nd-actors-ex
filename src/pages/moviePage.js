@@ -26,7 +26,7 @@ class MoviePage extends React.Component{
                         // (res) up to 20 search results from all the results in API.   
                         console.log(res.results);
                         // (res.results) gets only the results after getting input from the user   
-                        return {name:  movie.title, id: movie.id}
+                        return {name:  movie.title, id: movie.id, image: movie.poster_path}
                         //will return only the (person.name) actor name and ( person.profile_path) actor image from (res.results). 
                     })
                     this.setState({
@@ -53,12 +53,22 @@ class MoviePage extends React.Component{
         const actorCards = this.state.chosenMovie.map((movie) => {
             return (
             <Col lg={3} md={6} sm={12}>
-                    <Card>
+                    {/* <Card>
                         <h1>{movie.name}</h1>
                         <img src={`https://image.tmdb.org/t/p/w500/${movie.image}`}/>
-                        {/*  */}
+                   
                         <Link to={`/movie/${movie.id}`}>Click Me</Link>
-                    </Card>
+                    </Card> */}
+                    <Card >
+                        <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.image}`} />
+                        <Card.Body>
+                            <Card.Title><h1>{movie.name}</h1></Card.Title>
+                            {/* <Card.Text>
+
+                            </Card.Text> */}
+                            <Link to={`/movie/${movie.id}`}>Click Me</Link>
+                        </Card.Body>
+                        </Card>
              </Col>
             )
         })
@@ -79,3 +89,5 @@ class MoviePage extends React.Component{
 }
 
 export default (MoviePage);
+
+
