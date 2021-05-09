@@ -12,7 +12,7 @@ class ActorsPage extends React.Component{
 
         }
     }// newText comes from user input
-    searchTextChanged = (newText) => {
+    searchTextChanged = (newText) => {                                                      
         fetch(`https://api.themoviedb.org/3/search/person?api_key=1ee3645441ba4ed79b9da803ead5ce9a&query=${newText}`)
                                                                         //1ee3645441ba4ed79b9da803ead5ce9a my key
             .then( (stream) => stream.json())

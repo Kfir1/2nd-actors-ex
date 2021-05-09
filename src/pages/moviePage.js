@@ -13,7 +13,7 @@ class MoviePage extends React.Component{
 
         }
     }
-    searchTextChanged = (newText) => {
+    searchTextChanged = (newText) => {                                                            // &query=   means what to search. in this case we search variable from user
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=1ee3645441ba4ed79b9da803ead5ce9a&query=${newText}`)
 
             .then( (stream) => stream.json())
